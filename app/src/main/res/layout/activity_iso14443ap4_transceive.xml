@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_iso14443ap4_uid"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:gravity="center_vertical"
+            android:text="UID:"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/sn_iso14443ap4_uidList"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_iso14443ap4_inventory"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:text="Inventory"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_iso14443ap4_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Connect"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_iso14443ap4_disconnect"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Disconnect"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_iso14443ap4_send"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:gravity="center_vertical"
+            android:text="Send Data:"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/ed_iso14443ap4_send"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+    
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_iso14443ap4_recv"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:gravity="center_vertical"
+            android:text="Receive Data:"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/ed_iso14443ap4_recv"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_iso14443ap4_send"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:text="Send"
+        android:textSize="15sp" />
+
+</LinearLayout>

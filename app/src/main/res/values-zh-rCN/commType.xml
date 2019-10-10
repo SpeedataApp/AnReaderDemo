@@ -1,0 +1,11 @@
+<resources>
+
+    <string-array name="commType">
+        <item>蓝牙</item>
+        <item>串口</item>
+        <item>网络</item>
+        <item>USB</item>
+        <item>USB转串口</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+
+    <string-array name="devType">
+        <item>RPAN</item>
+        <item>M201</item>
+        <item>RD201</item>
+        <item>TPAD</item>
+        <item>RD5100</item>
+        <item>RL8000</item>
+        <item>AH2201</item>
+        <item>AH2202</item>
+        <item>AH2206</item>
+        <item>AH2208</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical" >
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/tv_s50_uid"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:gravity="center_vertical"
+                android:text="@string/tv_s50_uid"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/sn_s50_uidList"
+                android:layout_width="200dp"
+                android:layout_height="40dp" />
+
+            <Button
+                android:id="@+id/btn_S50_inventory"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:text="@string/btn_S50_inventory"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+       <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_s50_connect"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_connect"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_s50_disconnect"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_disconnect"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/tv_s50_addr"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/sn_s50_blkAddr"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:entries="@array/s50_blk_addr" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/tv_s50_keyType"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/sn_s50_keyType"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:entries="@array/s50_blk_key_type" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:text="@string/tv_s50_key"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/ed_s50_key"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:inputType="text" 
+                android:text="FFFFFFFFFFFF"/>
+        </LinearLayout>
+        
+          <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:text="@string/tv_s50_data"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/ed_s50_data"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:digits="0123456789abcdefABCDEF"
+                android:inputType="text"/>
+        </LinearLayout>
+        
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+   			<Button
+                android:id="@+id/btn_s50_authenticate"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_authenticate"
+                android:textSize="15sp" />
+            <Button
+                android:id="@+id/btn_s50_read"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_read"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_s50_write"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_write"
+                android:textSize="15sp" />
+
+         
+        </LinearLayout>
+
+       <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|right"
+                android:text="@string/tv_s50_value"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/ed_s50_value"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:digits="0123456789abcdefABCDEF"
+                android:gravity="center_vertical|center"
+                android:inputType="number"
+                android:maxLength="2"
+                android:text="0" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_s50_format"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_format"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_s50_restore"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_restore"
+                android:textSize="15sp" />
+        </LinearLayout>
+        
+          <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_s50_increase"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_increase"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_s50_decrease"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/btn_s50_decrease"
+                android:textSize="15sp" />
+        </LinearLayout>
+        
+
+       
+    </LinearLayout>
+
+</ScrollView>
