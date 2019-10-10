@@ -106,18 +106,18 @@ public class MainActivity extends Activity implements OnClickListener
 	private boolean bUseISO14443A = false;
 	private long mAntCfg = 0x000000;
 	private boolean bRealShowTag = false;
-	
+
 	private long mLoopCnt = 0;
 
 	private Thread m_inventoryThrd = null;// The thread of inventory
 	private Thread m_getScanRecordThrd = null;// The thead of scanf the record.
-												// Only for rpan device.
+	// Only for rpan device.
 
 	private boolean isLoadScanfMode = false;
 
 	private int[] layRes = { R.id.tab_reader, R.id.tab_command,
 			R.id.tab_inventory, R.id.tab_TagTypeList, R.id.tab_ScanRecord };
-	private String[] layTittle = null; // { "…Ë±∏", "√¸¡Ó", "≈Ãµ„", "∂¡–¥", "…®√Ë" };
+	private String[] layTittle = null; // { "ËÆæÂ§á", "ÂëΩ‰ª§", "ÁõòÁÇπ", "ËØªÂÜô", "Êâ´Êèè" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -165,13 +165,13 @@ public class MainActivity extends Activity implements OnClickListener
 		sn_overflow_time = (Spinner) findViewById(R.id.sn_overflow_time);
 		btn_read_overflow_time = (Button) findViewById(R.id.btn_read_overflow_time);
 		btn_write_overflow_time = (Button) findViewById(R.id.btn_write_overflow_time);
-		
+
 		sn_commType.setOnItemSelectedListener(new OnItemSelectedListener()
 		{
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id)
+									   int position, long id)
 			{
 				// TODO Auto-generated method stub
 				//MainActivity.com
@@ -182,9 +182,9 @@ public class MainActivity extends Activity implements OnClickListener
 			public void onNothingSelected(AdapterView<?> parent)
 			{
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 		});
 
 		// Load page
@@ -217,80 +217,80 @@ public class MainActivity extends Activity implements OnClickListener
 		List<Map<String, Object>> tagNameListItems = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < tagName.length; i++)
 		{
-			Map<String, Object> map = new HashMap<String, Object>(); //  µ¿˝ªØMap∂‘œÛ
+			Map<String, Object> map = new HashMap<String, Object>(); // ÂÆû‰æãÂåñMapÂØπË±°
 			map.put("image", R.drawable.arrow);
 			map.put("title", tagName[i]);
-			tagNameListItems.add(map); // Ω´map∂‘œÛÃÌº”µΩListºØ∫œ÷–
+			tagNameListItems.add(map); // Â∞ÜmapÂØπË±°Ê∑ªÂä†Âà∞ListÈõÜÂêà‰∏≠
 		}
 
-		// ∂¡–¥—°œÓ±Í«©¡–±Ì
+		// ËØªÂÜôÈÄâÈ°πÊ†áÁ≠æÂàóË°®
 		SimpleAdapter tagNamadapter = new SimpleAdapter(this, tagNameListItems,
 				R.xml.tag_name_items, new String[] { "title", "image" },
-				new int[] { R.id.tagListtitle, R.id.tagListimage }); // ¥¥Ω®SimpleAdapter
+				new int[] { R.id.tagListtitle, R.id.tagListimage }); // ÂàõÂª∫SimpleAdapter
 		list_tag_name.setAdapter(tagNamadapter);
 		list_tag_name.setOnItemClickListener(new OnItemClickListener()
 		{
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3)
+									long arg3)
 			{
 				Intent intent = null;
 				switch (arg2)
 				{
-				case 0:
-					if (!m_reader
-							.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO15693_ID))
-					{
-						Toast.makeText(MainActivity.this, "Unsupported",
-								Toast.LENGTH_SHORT).show();
-						return;
-					}
-					intent = new Intent(MainActivity.this,
-							IcodesliTagActivity.class);
-					startActivity(intent);
-					break;
-				case 1:
-					if (!m_reader
-							.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO14443A_ID))
-					{
-						Toast.makeText(MainActivity.this, "Unsupported",
-								Toast.LENGTH_SHORT).show();
-						return;
-					}
-					intent = new Intent(MainActivity.this,
-							MifareS50TagActivity.class);
-					startActivity(intent);
-					break;
-				case 2:
-					if (!m_reader
-							.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO14443A_ID))
-					{
-						Toast.makeText(MainActivity.this, "Unsupported",
-								Toast.LENGTH_SHORT).show();
-						return;
-					}
-					intent = new Intent(MainActivity.this,
-							UltralightTagActivity.class);
-					startActivity(intent);
-					break;
-				case 3:
-					if (!m_reader
-							.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO14443A_ID))
-					{
-						Toast.makeText(MainActivity.this, "Unsupported",
-								Toast.LENGTH_SHORT).show();
-						return;
-					}
-					intent = new Intent(MainActivity.this,
-							ISO14443Ap4TransceiveActivity.class);
-					startActivity(intent);
-					break;
-				default:
-					break;
+					case 0:
+						if (!m_reader
+								.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO15693_ID))
+						{
+							Toast.makeText(MainActivity.this, "Unsupported",
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+						intent = new Intent(MainActivity.this,
+								IcodesliTagActivity.class);
+						startActivity(intent);
+						break;
+					case 1:
+						if (!m_reader
+								.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO14443A_ID))
+						{
+							Toast.makeText(MainActivity.this, "Unsupported",
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+						intent = new Intent(MainActivity.this,
+								MifareS50TagActivity.class);
+						startActivity(intent);
+						break;
+					case 2:
+						if (!m_reader
+								.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO14443A_ID))
+						{
+							Toast.makeText(MainActivity.this, "Unsupported",
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+						intent = new Intent(MainActivity.this,
+								UltralightTagActivity.class);
+						startActivity(intent);
+						break;
+					case 3:
+						if (!m_reader
+								.RDR_IsAirProtocolSupport(RfidDef.RFID_APL_ISO14443A_ID))
+						{
+							Toast.makeText(MainActivity.this, "Unsupported",
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+						intent = new Intent(MainActivity.this,
+								ISO14443Ap4TransceiveActivity.class);
+						startActivity(intent);
+						break;
+					default:
+						break;
 				}
 			}
 		});
 
-		// ¡–æŸ“—≈‰∂‘µƒ¿∂—¿…Ë±∏
+		// Âàó‰∏æÂ∑≤ÈÖçÂØπÁöÑËìùÁâôËÆæÂ§á
 		// Get the bluetooth
 		ArrayList<CharSequence> m_bluetoolNameList = null;
 		ArrayAdapter<CharSequence> m_adaBluetoolName = null;
@@ -310,7 +310,7 @@ public class MainActivity extends Activity implements OnClickListener
 				m_bluetoolNameList);
 		sn_bluetooth.setAdapter(m_adaBluetoolName);
 
-		// ¡–æŸÀ˘”–¥Æø⁄
+		// Âàó‰∏æÊâÄÊúâ‰∏≤Âè£
 		// Get the Serial port
 		ArrayList<CharSequence> m_comNameList = new ArrayList<CharSequence>();
 		ArrayList<CharSequence> m_comBaudList = new ArrayList<CharSequence>();
@@ -396,11 +396,11 @@ public class MainActivity extends Activity implements OnClickListener
 		btn_read_overflow_time.setEnabled(false);
 
 		LoadActivityByHistory();
-		
+
 		CommTypeChange();
 	}
-	
-	
+
+
 	private void CommTypeChange()
 	{
 		LinearLayout bluetoothView = (LinearLayout) findViewById(R.id.group_bluetooth);
@@ -408,36 +408,36 @@ public class MainActivity extends Activity implements OnClickListener
 		RelativeLayout comView = (RelativeLayout) findViewById(R.id.group_com);
 		switch (sn_commType.getSelectedItemPosition())
 		{
-		case 0:
-			bluetoothView.setVisibility(View.VISIBLE);
-			netView.setVisibility(View.GONE);
-			comView.setVisibility(View.GONE);
-			break;
-		case 1:
-			bluetoothView.setVisibility(View.GONE);
-			netView.setVisibility(View.GONE);
-			comView.setVisibility(View.VISIBLE);
-			break;
-		case 2:
-			bluetoothView.setVisibility(View.GONE);
-			netView.setVisibility(View.VISIBLE);
-			comView.setVisibility(View.GONE);
-			break;
-		case 3:
-			bluetoothView.setVisibility(View.GONE);
-			netView.setVisibility(View.GONE);
-			comView.setVisibility(View.GONE);
-			break;
-		case 4:
-			bluetoothView.setVisibility(View.GONE);
-			netView.setVisibility(View.GONE);
-			comView.setVisibility(View.VISIBLE);
-			break;
-		default:
-			bluetoothView.setVisibility(View.GONE);
-			netView.setVisibility(View.GONE);
-			comView.setVisibility(View.GONE);
-			break;
+			case 0:
+				bluetoothView.setVisibility(View.VISIBLE);
+				netView.setVisibility(View.GONE);
+				comView.setVisibility(View.GONE);
+				break;
+			case 1:
+				bluetoothView.setVisibility(View.GONE);
+				netView.setVisibility(View.GONE);
+				comView.setVisibility(View.VISIBLE);
+				break;
+			case 2:
+				bluetoothView.setVisibility(View.GONE);
+				netView.setVisibility(View.VISIBLE);
+				comView.setVisibility(View.GONE);
+				break;
+			case 3:
+				bluetoothView.setVisibility(View.GONE);
+				netView.setVisibility(View.GONE);
+				comView.setVisibility(View.GONE);
+				break;
+			case 4:
+				bluetoothView.setVisibility(View.GONE);
+				netView.setVisibility(View.GONE);
+				comView.setVisibility(View.VISIBLE);
+				break;
+			default:
+				bluetoothView.setVisibility(View.GONE);
+				netView.setVisibility(View.GONE);
+				comView.setVisibility(View.GONE);
+				break;
 		}
 	}
 
@@ -447,7 +447,7 @@ public class MainActivity extends Activity implements OnClickListener
 		// soundPool.unload(soundID);
 		if (m_reader.isReaderOpen())
 		{
-			// »Áπ˚≈Ãµ„±Í«©œﬂ≥Ã’˝‘⁄‘À––£¨‘Úπÿ±’∏√œﬂ≥Ã
+			// Â¶ÇÊûúÁõòÁÇπÊ†áÁ≠æÁ∫øÁ®ãÊ≠£Âú®ËøêË°åÔºåÂàôÂÖ≥Èó≠ËØ•Á∫øÁ®ã
 			// If thread of inventory is running,stop the thread before exit the
 			// application.
 			if (m_inventoryThrd != null && m_inventoryThrd.isAlive())
@@ -464,7 +464,7 @@ public class MainActivity extends Activity implements OnClickListener
 				}
 			}
 
-			// »Áπ˚ªÒ»°…®√Ëº«¬ºœﬂ≥Ã’˝‘⁄‘À––£¨‘Úπÿ±’∏√œﬂ≥Ã
+			// Â¶ÇÊûúËé∑ÂèñÊâ´ÊèèËÆ∞ÂΩïÁ∫øÁ®ãÊ≠£Âú®ËøêË°åÔºåÂàôÂÖ≥Èó≠ËØ•Á∫øÁ®ã
 			// If thread of scannig is running,stop the thread before exit the
 			// application.
 			if (m_getScanRecordThrd != null && m_getScanRecordThrd.isAlive())
@@ -492,195 +492,195 @@ public class MainActivity extends Activity implements OnClickListener
 		String str = "";
 		switch (v.getId())
 		{
-		case R.id.btn_connect:// connect the device
-			OpenDev();
-			break;
-		case R.id.btn_disconnect:// disconnect the device
-			CloseDev();
-			break;
-		case R.id.btn_getDevInfo:// get the informatin of the device
-			GetInformation();
-			break;
-		case R.id.btn_setTime:
-			SetSysTime();
-			break;
-		case R.id.btn_openRF:// Open RF
-			nret = m_reader.RDR_OpenRFTransmitter((byte) 1);
-			if (nret == ApiErrDefinition.NO_ERROR)
-			{
-				str = getString(R.string.tx_openRF_ok);
-			}
-			else
-			{
-				str = getString(R.string.tx_openRF_fail);
-			}
-			MessageBox(getString(R.string.tx_openRF), str);
-			break;
-		case R.id.btn_setPower:// Set the power
-			byte powerIndex = (byte) (sn_RfPower.getSelectedItemPosition() + 1);
-			nret = m_reader.RDR_SetRFPower(powerIndex);
-			if (nret == ApiErrDefinition.NO_ERROR)
-			{
-				str = getString(R.string.tx_setPower_ok);
-			}
-			else
-			{
-				str = getString(R.string.tx_setPower_fail);
-			}
-			MessageBox(getString(R.string.tx_setPower), str);
-			break;
-		case R.id.btn_loadDefault:// reset
-			nret = m_reader.RDR_LoadFactoryDefault();
-			if (nret == ApiErrDefinition.NO_ERROR)
-			{
-				str = getString(R.string.tx_loadDefault_ok);
-			}
-			else
-			{
-				str = getString(R.string.tx_loadDefault_fail);
-			}
-			MessageBox(getString(R.string.tx_loadDefault), str);
-			break;
-		case R.id.btn_readPower:// Get RF Power
-			Byte mPower = new Byte((byte) 0);
-			nret = m_reader.RDR_GetRFPower(mPower);
-			if (nret != ApiErrDefinition.NO_ERROR)
-			{
+			case R.id.btn_connect:// connect the device
+				OpenDev();
+				break;
+			case R.id.btn_disconnect:// disconnect the device
+				CloseDev();
+				break;
+			case R.id.btn_getDevInfo:// get the informatin of the device
+				GetInformation();
+				break;
+			case R.id.btn_setTime:
+				SetSysTime();
+				break;
+			case R.id.btn_openRF:// Open RF
+				nret = m_reader.RDR_OpenRFTransmitter((byte) 1);
+				if (nret == ApiErrDefinition.NO_ERROR)
+				{
+					str = getString(R.string.tx_openRF_ok);
+				}
+				else
+				{
+					str = getString(R.string.tx_openRF_fail);
+				}
+				MessageBox(getString(R.string.tx_openRF), str);
+				break;
+			case R.id.btn_setPower:// Set the power
+				byte powerIndex = (byte) (sn_RfPower.getSelectedItemPosition() + 1);
+				nret = m_reader.RDR_SetRFPower(powerIndex);
+				if (nret == ApiErrDefinition.NO_ERROR)
+				{
+					str = getString(R.string.tx_setPower_ok);
+				}
+				else
+				{
+					str = getString(R.string.tx_setPower_fail);
+				}
+				MessageBox(getString(R.string.tx_setPower), str);
+				break;
+			case R.id.btn_loadDefault:// reset
+				nret = m_reader.RDR_LoadFactoryDefault();
+				if (nret == ApiErrDefinition.NO_ERROR)
+				{
+					str = getString(R.string.tx_loadDefault_ok);
+				}
+				else
+				{
+					str = getString(R.string.tx_loadDefault_fail);
+				}
+				MessageBox(getString(R.string.tx_loadDefault), str);
+				break;
+			case R.id.btn_readPower:// Get RF Power
+				Byte mPower = new Byte((byte) 0);
+				nret = m_reader.RDR_GetRFPower(mPower);
+				if (nret != ApiErrDefinition.NO_ERROR)
+				{
+					MessageBox(getString(R.string.tx_getRFPower),
+							getString(R.string.tx_getRFPower_fail) + nret);
+					break;
+				}
+				sn_RfPower.setSelection(mPower.byteValue() - 1);
 				MessageBox(getString(R.string.tx_getRFPower),
-						getString(R.string.tx_getRFPower_fail) + nret);
+						getString(R.string.tx_getRFPower_ok));
 				break;
-			}
-			sn_RfPower.setSelection(mPower.byteValue() - 1);
-			MessageBox(getString(R.string.tx_getRFPower),
-					getString(R.string.tx_getRFPower_ok));
-			break;
-		case R.id.btn_closeRF:// πÿ±’…‰∆µ
-			nret = m_reader.RDR_CloseRFTransmitter();
-			if (nret == ApiErrDefinition.NO_ERROR)
-			{
-				str = getString(R.string.tx_CloseRF_ok);// "πÿ±’…‰∆µ≥…π¶£°";
-			}
-			else
-			{
-				str = getString(R.string.tx_CloseRF_fail);// "πÿ±’…‰∆µ ß∞‹";
-			}
-			MessageBox(getString(R.string.tx_CloseRF), str);
-			break;
-		case R.id.btn_startInventory:// ø™ º≈Ãµ„
-			btn_connect.setEnabled(false);
-			btn_disconnect.setEnabled(false);
-			btn_getDevInfo.setEnabled(false);
-			btn_setTime.setEnabled(false);
-			btn_openRF.setEnabled(false);
-			btn_closeRF.setEnabled(false);
-			btn_startInventory.setEnabled(false);
-			btn_stopInventory.setEnabled(true);
-			btn_setInventoryPara.setEnabled(false);
-			btn_clearInventoryRecord.setEnabled(false);
-			btn_startScanf.setEnabled(false);
-			btn_stopScanf.setEnabled(false);
-			sn_RfPower.setEnabled(false);
-			btn_readPower.setEnabled(false);
-			btn_setPower.setEnabled(false);
-			btn_loadDefault.setEnabled(false);
-			list_tag_name.setEnabled(false);
-			sn_overflow_time.setEnabled(false);
-			btn_read_overflow_time.setEnabled(false);
-			btn_write_overflow_time.setEnabled(false);
-			inventoryList.clear();
-			inventoryAdapter.notifyDataSetChanged();
-			tv_inventoryInfo.setText(getString(R.string.tv_inventoryInfo));
-			m_inventoryThrd = new Thread(new InventoryThrd());
-			m_inventoryThrd.start();
-			break;
-		case R.id.btn_stopInventory:// Õ£÷π≈Ãµ„
-			btn_stopInventory.setEnabled(false);
-			m_reader.RDR_SetCommuImmeTimeout();
-			b_inventoryThreadRun = false;
-			break;
-		case R.id.btn_paraInventory:// ≈Ãµ„≤Œ ˝…Ë÷√
-			Intent intent = new Intent(this, InventoryParaActivity.class);
-			Bundle bundle = new Bundle();
-			bundle.putBoolean("bUseISO15693", this.bUseISO15693);
-			bundle.putBoolean("bUseISO14443A", this.bUseISO14443A);
-			bundle.putBoolean("OnlyReadNew", this.bOnlyReadNew);
-			bundle.putBoolean("MathAFI", this.bMathAFI);
-			bundle.putByte("AFI", this.mAFIVal);
-			bundle.putBoolean("bBuzzer", this.bBuzzer);
-			bundle.putLong("mAntCfg", mAntCfg);
-			bundle.putBoolean("bRealShowTag", bRealShowTag);
-			intent.putExtras(bundle);
-			startActivityForResult(intent, INVENTORY_REQUEST_CODE);
-			break;
-		case R.id.btn_clearList:// «Âø’¡–±Ì
-			inventoryList.clear();
-			this.inventoryAdapter.notifyDataSetChanged();
-			tv_inventoryInfo.setText(getString(R.string.tx_inventory_sum0));
-			break;
-		case R.id.btn_startScanfRecord:// ø™ º…®√Ë
-			btn_connect.setEnabled(false);
-			btn_disconnect.setEnabled(false);
-			btn_getDevInfo.setEnabled(false);
-			btn_setTime.setEnabled(false);
-			btn_openRF.setEnabled(false);
-			btn_closeRF.setEnabled(false);
-			btn_startInventory.setEnabled(false);
-			btn_stopInventory.setEnabled(false);
-			btn_setInventoryPara.setEnabled(false);
-			btn_clearInventoryRecord.setEnabled(false);
-			btn_startScanf.setEnabled(false);
-			btn_stopScanf.setEnabled(true);
-			btn_clearScanfRecordList.setEnabled(false);
-			sn_RfPower.setEnabled(false);
-			btn_readPower.setEnabled(false);
-			btn_setPower.setEnabled(false);
-			btn_loadDefault.setEnabled(false);
-			list_tag_name.setEnabled(false);
-			sn_overflow_time.setEnabled(false);
-			btn_read_overflow_time.setEnabled(false);
-			btn_write_overflow_time.setEnabled(false);
-			scanfReportList.clear();
-			scanfAdapter.notifyDataSetChanged();
-			tv_scanRecordInfo.setText(getString(R.string.tx_scanf_sum0));
-			m_getScanRecordThrd = new Thread(new GetScanRecordThrd());
-			m_getScanRecordThrd.start();
-			break;
-		case R.id.btn_stopScanfRecord:// Õ£÷π≤…ºØº«¬º
-			btn_stopScanf.setEnabled(false);
-			bGetScanRecordFlg = false;
-			break;
-		case R.id.btn_clearScanfRecordList:// «Âø’…®√Ëº«¬º
-			scanfReportList.clear();
-			tv_scanRecordInfo.setText(getString(R.string.tx_scanf_sum0));
-			this.scanfAdapter.notifyDataSetChanged();
-			break;
-		case R.id.btn_read_overflow_time:// ªÒ»°“Á≥ˆ ±º‰
-			Integer mTime = 0;
-			nret = m_reader.RDR_GetOverflowTime(mTime);
-			if (nret != ApiErrDefinition.NO_ERROR)
-			{
+			case R.id.btn_closeRF:// ÂÖ≥Èó≠Â∞ÑÈ¢ë
+				nret = m_reader.RDR_CloseRFTransmitter();
+				if (nret == ApiErrDefinition.NO_ERROR)
+				{
+					str = getString(R.string.tx_CloseRF_ok);// "ÂÖ≥Èó≠Â∞ÑÈ¢ëÊàêÂäüÔºÅ";
+				}
+				else
+				{
+					str = getString(R.string.tx_CloseRF_fail);// "ÂÖ≥Èó≠Â∞ÑÈ¢ëÂ§±Ë¥•";
+				}
+				MessageBox(getString(R.string.tx_CloseRF), str);
+				break;
+			case R.id.btn_startInventory:// ÂºÄÂßãÁõòÁÇπ
+				btn_connect.setEnabled(false);
+				btn_disconnect.setEnabled(false);
+				btn_getDevInfo.setEnabled(false);
+				btn_setTime.setEnabled(false);
+				btn_openRF.setEnabled(false);
+				btn_closeRF.setEnabled(false);
+				btn_startInventory.setEnabled(false);
+				btn_stopInventory.setEnabled(true);
+				btn_setInventoryPara.setEnabled(false);
+				btn_clearInventoryRecord.setEnabled(false);
+				btn_startScanf.setEnabled(false);
+				btn_stopScanf.setEnabled(false);
+				sn_RfPower.setEnabled(false);
+				btn_readPower.setEnabled(false);
+				btn_setPower.setEnabled(false);
+				btn_loadDefault.setEnabled(false);
+				list_tag_name.setEnabled(false);
+				sn_overflow_time.setEnabled(false);
+				btn_read_overflow_time.setEnabled(false);
+				btn_write_overflow_time.setEnabled(false);
+				inventoryList.clear();
+				inventoryAdapter.notifyDataSetChanged();
+				tv_inventoryInfo.setText(getString(R.string.tv_inventoryInfo));
+				m_inventoryThrd = new Thread(new InventoryThrd());
+				m_inventoryThrd.start();
+				break;
+			case R.id.btn_stopInventory:// ÂÅúÊ≠¢ÁõòÁÇπ
+				btn_stopInventory.setEnabled(false);
+				m_reader.RDR_SetCommuImmeTimeout();
+				b_inventoryThreadRun = false;
+				break;
+			case R.id.btn_paraInventory:// ÁõòÁÇπÂèÇÊï∞ËÆæÁΩÆ
+				Intent intent = new Intent(this, InventoryParaActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putBoolean("bUseISO15693", this.bUseISO15693);
+				bundle.putBoolean("bUseISO14443A", this.bUseISO14443A);
+				bundle.putBoolean("OnlyReadNew", this.bOnlyReadNew);
+				bundle.putBoolean("MathAFI", this.bMathAFI);
+				bundle.putByte("AFI", this.mAFIVal);
+				bundle.putBoolean("bBuzzer", this.bBuzzer);
+				bundle.putLong("mAntCfg", mAntCfg);
+				bundle.putBoolean("bRealShowTag", bRealShowTag);
+				intent.putExtras(bundle);
+				startActivityForResult(intent, INVENTORY_REQUEST_CODE);
+				break;
+			case R.id.btn_clearList:// Ê∏ÖÁ©∫ÂàóË°®
+				inventoryList.clear();
+				this.inventoryAdapter.notifyDataSetChanged();
+				tv_inventoryInfo.setText(getString(R.string.tx_inventory_sum0));
+				break;
+			case R.id.btn_startScanfRecord:// ÂºÄÂßãÊâ´Êèè
+				btn_connect.setEnabled(false);
+				btn_disconnect.setEnabled(false);
+				btn_getDevInfo.setEnabled(false);
+				btn_setTime.setEnabled(false);
+				btn_openRF.setEnabled(false);
+				btn_closeRF.setEnabled(false);
+				btn_startInventory.setEnabled(false);
+				btn_stopInventory.setEnabled(false);
+				btn_setInventoryPara.setEnabled(false);
+				btn_clearInventoryRecord.setEnabled(false);
+				btn_startScanf.setEnabled(false);
+				btn_stopScanf.setEnabled(true);
+				btn_clearScanfRecordList.setEnabled(false);
+				sn_RfPower.setEnabled(false);
+				btn_readPower.setEnabled(false);
+				btn_setPower.setEnabled(false);
+				btn_loadDefault.setEnabled(false);
+				list_tag_name.setEnabled(false);
+				sn_overflow_time.setEnabled(false);
+				btn_read_overflow_time.setEnabled(false);
+				btn_write_overflow_time.setEnabled(false);
+				scanfReportList.clear();
+				scanfAdapter.notifyDataSetChanged();
+				tv_scanRecordInfo.setText(getString(R.string.tx_scanf_sum0));
+				m_getScanRecordThrd = new Thread(new GetScanRecordThrd());
+				m_getScanRecordThrd.start();
+				break;
+			case R.id.btn_stopScanfRecord:// ÂÅúÊ≠¢ÈááÈõÜËÆ∞ÂΩï
+				btn_stopScanf.setEnabled(false);
+				bGetScanRecordFlg = false;
+				break;
+			case R.id.btn_clearScanfRecordList:// Ê∏ÖÁ©∫Êâ´ÊèèËÆ∞ÂΩï
+				scanfReportList.clear();
+				tv_scanRecordInfo.setText(getString(R.string.tx_scanf_sum0));
+				this.scanfAdapter.notifyDataSetChanged();
+				break;
+			case R.id.btn_read_overflow_time:// Ëé∑ÂèñÊ∫¢Âá∫Êó∂Èó¥
+				Integer mTime = 0;
+				nret = m_reader.RDR_GetOverflowTime(mTime);
+				if (nret != ApiErrDefinition.NO_ERROR)
+				{
+					MessageBox(getString(R.string.tx_getOverflowTime),
+							getString(R.string.tx_getOverflowTime_fail) + nret);
+					break;
+				}
+				sn_overflow_time.setSelection(mTime.intValue());
 				MessageBox(getString(R.string.tx_getOverflowTime),
-						getString(R.string.tx_getOverflowTime_fail) + nret);
+						getString(R.string.tx_getOverflowTime_ok));
 				break;
-			}
-			sn_overflow_time.setSelection(mTime.intValue());
-			MessageBox(getString(R.string.tx_getOverflowTime),
-					getString(R.string.tx_getOverflowTime_ok));
-			break;
-		case R.id.btn_write_overflow_time:// …Ë÷√“Á≥ˆ ±º‰
-			nret = m_reader.RDR_SetOverflowTime(sn_overflow_time
-					.getSelectedItemPosition());
-			if (nret != ApiErrDefinition.NO_ERROR)
-			{
+			case R.id.btn_write_overflow_time:// ËÆæÁΩÆÊ∫¢Âá∫Êó∂Èó¥
+				nret = m_reader.RDR_SetOverflowTime(sn_overflow_time
+						.getSelectedItemPosition());
+				if (nret != ApiErrDefinition.NO_ERROR)
+				{
+					MessageBox(getString(R.string.tx_setOverflowTime),
+							getString(R.string.tx_setOverflowTime_fail) + nret);
+					break;
+				}
 				MessageBox(getString(R.string.tx_setOverflowTime),
-						getString(R.string.tx_setOverflowTime_fail) + nret);
+						getString(R.string.tx_setOverflowTime_ok) + nret);
 				break;
-			}
-			MessageBox(getString(R.string.tx_setOverflowTime),
-					getString(R.string.tx_setOverflowTime_ok) + nret);
-			break;
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -745,7 +745,7 @@ public class MainActivity extends Activity implements OnClickListener
 			conStr = String.format("RDType=%s;CommType=BLUETOOTH;Name=%s",
 					devName, bluetoolName);
 		}
-		else if (mIdx == 1)// ¥Æø⁄
+		else if (mIdx == 1)// ‰∏≤Âè£
 		{
 			if (sn_comName.getAdapter().isEmpty())
 			{
@@ -760,7 +760,7 @@ public class MainActivity extends Activity implements OnClickListener
 							sn_comFrame.getSelectedItem().toString());
 		}
 		else if (mIdx == 2)// (commTypeStr.equals(getString(R.string.tx_type_net)))//
-							// Õ¯¬Á
+		// ÁΩëÁªú
 		{
 			String sRemoteIp = ed_ipAddr.getText().toString();
 			String sRemotePort = ed_port.getText().toString();
@@ -770,16 +770,16 @@ public class MainActivity extends Activity implements OnClickListener
 		}
 		else if (mIdx == 3)// (commTypeStr.equals("USB"))
 		{
-			// ◊¢“‚£∫ π”√USB∑Ω Ω ±£¨±ÿ–Îœ»“™√∂æŸÀ˘”–USB…Ë±∏
+			// Ê≥®ÊÑèÔºö‰ΩøÁî®USBÊñπÂºèÊó∂ÔºåÂøÖÈ°ªÂÖàË¶ÅÊûö‰∏æÊâÄÊúâUSBËÆæÂ§á
 			// Note: Before using USB, you must enumerate all USB devices first.
-			int usbCnt = ADReaderInterface.EnumerateUsb(this);	
+			int usbCnt = ADReaderInterface.EnumerateUsb(this);
 			if (usbCnt <= 0)
 			{
 				Toast.makeText(this, getString(R.string.tx_msg_noUsb),
 						Toast.LENGTH_SHORT).show();
 				return;
 			}
-			
+
 			if (!ADReaderInterface.HasUsbPermission("0"))
 			{
 				Toast.makeText(this,
@@ -794,7 +794,7 @@ public class MainActivity extends Activity implements OnClickListener
 		else if (mIdx == 4)// (commTypeStr.equals(getString(R.string.tx_type_usb_com)))
 		{
 			// Attention: Only support Z-TEK
-			// ◊¢“‚£∫ƒø¬º÷ª÷ß≥÷Z-TEK–Õ∫≈µƒUSB◊™¥Æø⁄œﬂ
+			// Ê≥®ÊÑèÔºöÁõÆÂΩïÂè™ÊîØÊåÅZ-TEKÂûãÂè∑ÁöÑUSBËΩ¨‰∏≤Âè£Á∫ø
 			int mUsbCnt = ADReaderInterface.EnumerateZTEK(this, 0x0403, 0x6001);
 			if (mUsbCnt <= 0)
 			{
@@ -815,7 +815,7 @@ public class MainActivity extends Activity implements OnClickListener
 		int iret = m_reader.RDR_Open(conStr);
 		if (iret == ApiErrDefinition.NO_ERROR)
 		{
-			// ///////////////////////÷ª”–RPAN…Ë±∏÷ß≥÷…®√Ëƒ£ Ω/////////////////////////////
+			// ///////////////////////Âè™ÊúâRPANËÆæÂ§áÊîØÊåÅÊâ´ÊèèÊ®°Âºè/////////////////////////////
 			if (!isLoadScanfMode && devName.equals("RPAN"))
 			{
 				findViewById(layRes[4]).setVisibility(View.VISIBLE);
@@ -869,7 +869,7 @@ public class MainActivity extends Activity implements OnClickListener
 		}
 	}
 
-	// ≤•∑≈…˘“Ù≥ÿ…˘“Ù
+	// Êí≠ÊîæÂ£∞Èü≥Ê±†Â£∞Èü≥
 	// private void playVoice()
 	// {
 	// AudioManager am = (AudioManager) this
@@ -1019,117 +1019,117 @@ public class MainActivity extends Activity implements OnClickListener
 			boolean b_find = false;
 			switch (msg.what)
 			{
-			case INVENTORY_MSG:// ≈Ãµ„µΩ±Í«©
-				@SuppressWarnings("unchecked")
-				Vector<Object> tagList = (Vector<Object>) msg.obj;
-				if (pt.bRealShowTag && !pt.inventoryList.isEmpty())
-				{
-					pt.inventoryList.clear();
-				}
-				if (!tagList.isEmpty() && pt.bBuzzer)
-				{
-					VoicePlayer.GetInst(pt).Play();
-				}
-				for (int i = 0; i < tagList.size(); i++)
-				{
-					b_find = false;
-
-					// ISO15693 TAG
-					if (tagList.get(i) instanceof ISO15693Tag)
+				case INVENTORY_MSG:// ÁõòÁÇπÂà∞Ê†áÁ≠æ
+					@SuppressWarnings("unchecked")
+					Vector<Object> tagList = (Vector<Object>) msg.obj;
+					if (pt.bRealShowTag && !pt.inventoryList.isEmpty())
 					{
-						ISO15693Tag tagData = (ISO15693Tag) tagList.get(i);
-						String uidStr = GFunction.encodeHexStr(tagData.uid);
-						for (int j = 0; j < pt.inventoryList.size(); j++)
+						pt.inventoryList.clear();
+					}
+					if (!tagList.isEmpty() && pt.bBuzzer)
+					{
+						VoicePlayer.GetInst(pt).Play();
+					}
+					for (int i = 0; i < tagList.size(); i++)
+					{
+						b_find = false;
+
+						// ISO15693 TAG
+						if (tagList.get(i) instanceof ISO15693Tag)
 						{
-							InventoryReport mReport = pt.inventoryList.get(j);
-							if (mReport.getUidStr().equals(uidStr))
+							ISO15693Tag tagData = (ISO15693Tag) tagList.get(i);
+							String uidStr = GFunction.encodeHexStr(tagData.uid);
+							for (int j = 0; j < pt.inventoryList.size(); j++)
+							{
+								InventoryReport mReport = pt.inventoryList.get(j);
+								if (mReport.getUidStr().equals(uidStr))
+								{
+									mReport.setFindCnt(mReport.getFindCnt() + 1);
+									b_find = true;
+									break;
+								}
+							}
+							if (!b_find)
+							{
+								long mCnt = pt.bRealShowTag?0:1;
+								String tagName = ISO15693Interface
+										.GetTagNameById(tagData.tag_id);
+								pt.inventoryList.add(new InventoryReport(uidStr,
+										tagName,mCnt));
+
+							}
+						}
+						else if (tagList.get(i) instanceof ISO14443ATag)
+						{
+							ISO14443ATag tagData = (ISO14443ATag) tagList.get(i);
+							String uidStr = GFunction.encodeHexStr(tagData.uid);
+							for (int j = 0; j < pt.inventoryList.size(); j++)
+							{
+								InventoryReport mReport = pt.inventoryList.get(j);
+								if (mReport.getUidStr().equals(uidStr))
+								{
+									mReport.setFindCnt(mReport.getFindCnt() + 1);
+									b_find = true;
+									break;
+								}
+							}
+							if (!b_find)
+							{
+								long mCnt = pt.bRealShowTag?0:1;
+								String tagName = ISO14443AInterface
+										.GetTagNameById(tagData.tag_id);
+								pt.inventoryList.add(new InventoryReport(uidStr,
+										tagName,mCnt));
+
+							}
+						}
+
+					}
+					pt.tv_inventoryInfo.setText(pt
+							.getString(R.string.tx_info_tagCnt)
+							+ pt.inventoryList.size()
+							+ pt.getString(R.string.tx_info_loopCnt)+ pt.mLoopCnt
+							+ pt.getString(R.string.tx_info_failCnt) + msg.arg1);
+					pt.inventoryAdapter.notifyDataSetChanged();
+					break;
+				case INVENTORY_FAIL_MSG:
+					pt.tv_inventoryInfo.setText(pt
+							.getString(R.string.tx_info_tagCnt)
+							+ pt.inventoryList.size()
+							+ pt.getString(R.string.tx_info_loopCnt)+ pt.mLoopCnt
+							+ pt.getString(R.string.tx_info_failCnt) + msg.arg1);
+					break;
+				case GETSCANRECORD:// Êâ´ÊèèÂà∞ËÆ∞ÂΩï
+					@SuppressWarnings("unchecked")
+					Vector<String> dataList = (Vector<String>) msg.obj;
+					for (String str : dataList)
+					{
+						b_find = false;
+						for (int i = 0; i < pt.scanfReportList.size(); i++)
+						{
+							ScanReport mReport = pt.scanfReportList.get(i);
+							if (str.equals(mReport.getDataStr()))
 							{
 								mReport.setFindCnt(mReport.getFindCnt() + 1);
 								b_find = true;
-								break;
 							}
 						}
 						if (!b_find)
 						{
-							long mCnt = pt.bRealShowTag?0:1;
-							String tagName = ISO15693Interface
-									.GetTagNameById(tagData.tag_id);
-							pt.inventoryList.add(new InventoryReport(uidStr,
-									tagName,mCnt));
-
+							pt.scanfReportList.add(new ScanReport(str));
 						}
-					}
-					else if (tagList.get(i) instanceof ISO14443ATag)
-					{
-						ISO14443ATag tagData = (ISO14443ATag) tagList.get(i);
-						String uidStr = GFunction.encodeHexStr(tagData.uid);
-						for (int j = 0; j < pt.inventoryList.size(); j++)
-						{
-							InventoryReport mReport = pt.inventoryList.get(j);
-							if (mReport.getUidStr().equals(uidStr))
-							{
-								mReport.setFindCnt(mReport.getFindCnt() + 1);
-								b_find = true;
-								break;
-							}
-						}
-						if (!b_find)
-						{
-							long mCnt = pt.bRealShowTag?0:1;
-							String tagName = ISO14443AInterface
-									.GetTagNameById(tagData.tag_id);
-							pt.inventoryList.add(new InventoryReport(uidStr,
-									tagName,mCnt));
 
-						}
 					}
-
-				}
-				pt.tv_inventoryInfo.setText(pt
-						.getString(R.string.tx_info_tagCnt)
-						+ pt.inventoryList.size()
-						+ pt.getString(R.string.tx_info_loopCnt)+ pt.mLoopCnt
-						+ pt.getString(R.string.tx_info_failCnt) + msg.arg1);
-				pt.inventoryAdapter.notifyDataSetChanged();
-				break;
-			case INVENTORY_FAIL_MSG:
-				pt.tv_inventoryInfo.setText(pt
-						.getString(R.string.tx_info_tagCnt)
-						+ pt.inventoryList.size()
-						+ pt.getString(R.string.tx_info_loopCnt)+ pt.mLoopCnt
-						+ pt.getString(R.string.tx_info_failCnt) + msg.arg1);
-				break;
-			case GETSCANRECORD:// …®√ËµΩº«¬º
-				@SuppressWarnings("unchecked")
-				Vector<String> dataList = (Vector<String>) msg.obj;
-				for (String str : dataList)
-				{
-					b_find = false;
-					for (int i = 0; i < pt.scanfReportList.size(); i++)
-					{
-						ScanReport mReport = pt.scanfReportList.get(i);
-						if (str.equals(mReport.getDataStr()))
-						{
-							mReport.setFindCnt(mReport.getFindCnt() + 1);
-							b_find = true;
-						}
-					}
-					if (!b_find)
-					{
-						pt.scanfReportList.add(new ScanReport(str));
-					}
-
-				}
-				pt.tv_scanRecordInfo.setText(pt
-						.getString(R.string.tx_info_scanfCnt)
-						+ pt.scanfReportList.size());
-				pt.scanfAdapter.notifyDataSetChanged();
-				break;
-			case THREAD_END:// œﬂ≥ÃΩ· ¯
-				pt.FinishInventory();
-				break;
-			default:
-				break;
+					pt.tv_scanRecordInfo.setText(pt
+							.getString(R.string.tx_info_scanfCnt)
+							+ pt.scanfReportList.size());
+					pt.scanfAdapter.notifyDataSetChanged();
+					break;
+				case THREAD_END:// Á∫øÁ®ãÁªìÊùü
+					pt.FinishInventory();
+					break;
+				default:
+					break;
 			}
 		}
 	}
@@ -1140,7 +1140,7 @@ public class MainActivity extends Activity implements OnClickListener
 	{
 		public void run()
 		{
-			int failedCnt = 0;// ≤Ÿ◊˜ ß∞‹¥Œ ˝
+			int failedCnt = 0;// Êìç‰ΩúÂ§±Ë¥•Ê¨°Êï∞
 			Object hInvenParamSpecList = null;
 			byte newAI = RfidDef.AI_TYPE_NEW;
 			byte useAnt[] = null;
@@ -1257,7 +1257,7 @@ public class MainActivity extends Activity implements OnClickListener
 			}
 			b_inventoryThreadRun = false;
 			m_reader.RDR_ResetCommuImmeTimeout();
-			mHandler.sendEmptyMessage(THREAD_END);// ≈Ãµ„Ω· ¯
+			mHandler.sendEmptyMessage(THREAD_END);// ÁõòÁÇπÁªìÊùü
 		}
 	};
 
@@ -1269,7 +1269,7 @@ public class MainActivity extends Activity implements OnClickListener
 		{
 			int nret = 0;
 			bGetScanRecordFlg = true;
-			byte gFlg = 0x00;// ≥ı¥Œ≤…ºØ ˝æ›ªÚ’ﬂ…œ“ª¥Œ≤…ºØ ˝æ› ß∞‹ ±£¨±Í÷æŒªŒ™0x00
+			byte gFlg = 0x00;// ÂàùÊ¨°ÈááÈõÜÊï∞ÊçÆÊàñËÄÖ‰∏ä‰∏ÄÊ¨°ÈááÈõÜÊï∞ÊçÆÂ§±Ë¥•Êó∂ÔºåÊ†áÂøó‰Ωç‰∏∫0x00
 			Object dnhReport = null;
 			while (bGetScanRecordFlg)
 			{
@@ -1314,7 +1314,7 @@ public class MainActivity extends Activity implements OnClickListener
 				}
 			}
 			bGetScanRecordFlg = false;
-			mHandler.sendEmptyMessage(THREAD_END);// Ω· ¯
+			mHandler.sendEmptyMessage(THREAD_END);// ÁªìÊùü
 		}
 	};
 
@@ -1357,7 +1357,7 @@ public class MainActivity extends Activity implements OnClickListener
 		editor.putLong(sKey, val);
 		editor.commit();
 	}
-	
+
 	private void saveHistory(String sKey, boolean val)
 	{
 		@SuppressWarnings("deprecation")
@@ -1367,7 +1367,7 @@ public class MainActivity extends Activity implements OnClickListener
 		editor.putBoolean(sKey, val);
 		editor.commit();
 	}
-	
+
 	private boolean GetHistoryBool(String sKey)
 	{
 		@SuppressWarnings("deprecation")

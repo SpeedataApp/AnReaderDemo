@@ -393,14 +393,14 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		int idx = (int) sn_icodesli_connectMode.getSelectedItemId();
 		switch (idx)
 		{
-		case 0:
-			connectMode = 0;// none address mode
-			break;
-		case 1:
-			connectMode = 1;// address mode
-			break;
-		default:
-			break;
+			case 0:
+				connectMode = 0;// none address mode
+				break;
+			case 1:
+				connectMode = 1;// address mode
+				break;
+			default:
+				break;
 		}
 
 		byte connectUid[] = null;
@@ -500,7 +500,7 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		}
 	}
 
-	@SuppressLint("UseValueOf") 
+	@SuppressLint("UseValueOf")
 	private void UiReadBlock()
 	{
 		int blkAddr = (int) sn_icodesli_blkAddr.getSelectedItemPosition();
@@ -565,7 +565,7 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		String srtResult;
 		if (iret == ApiErrDefinition.NO_ERROR)
 		{
-			srtResult = getString(R.string.tx_msg_lockBlk_ok);// "锁数据块成功!";
+			srtResult = getString(R.string.tx_msg_lockBlk_ok);// "閿佹暟鎹潡鎴愬姛!";
 		}
 		else
 		{
@@ -589,7 +589,7 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		String srtResult;
 		if (iret == ApiErrDefinition.NO_ERROR)
 		{
-			srtResult = getString(R.string.tx_msg_setDsfid_ok);// "设置DSFID成功!";
+			srtResult = getString(R.string.tx_msg_setDsfid_ok);// "璁剧疆DSFID鎴愬姛!";
 		}
 		else
 		{
@@ -613,7 +613,7 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		String srtResult;
 		if (iret == ApiErrDefinition.NO_ERROR)
 		{
-			srtResult = getString(R.string.tx_msg_setAfi_ok);// "设置AFI成功!";
+			srtResult = getString(R.string.tx_msg_setAfi_ok);// "璁剧疆AFI鎴愬姛!";
 		}
 		else
 		{
@@ -647,7 +647,7 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		String srtResult;
 		if (iret == ApiErrDefinition.NO_ERROR)
 		{
-			srtResult = getString(R.string.tx_msg_enEAS_ok);// "使能EAS成功!";
+			srtResult = getString(R.string.tx_msg_enEAS_ok);// "浣胯兘EAS鎴愬姛!";
 		}
 		else
 		{
@@ -746,23 +746,23 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		int idx = sn_icodesli_pwbid.getSelectedItemPosition();
 		switch (idx)
 		{
-		case 0:
-			pwdId = 0x01;
-			break;
-		case 1:
-			pwdId = 0x02;
-			break;
-		case 2:
-			pwdId = 0x04;
-			break;
-		case 3:
-			pwdId = 0x08;
-			break;
-		case 4:
-			pwdId = 0x10;
-			break;
-		default:
-			return;
+			case 0:
+				pwdId = 0x01;
+				break;
+			case 1:
+				pwdId = 0x02;
+				break;
+			case 2:
+				pwdId = 0x04;
+				break;
+			case 3:
+				pwdId = 0x08;
+				break;
+			case 4:
+				pwdId = 0x10;
+				break;
+			default:
+				return;
 		}
 		String strPwb = ed_icodesli_pwb.getText().toString();
 		if (strPwb.length() != 8)
@@ -790,23 +790,23 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		int idx = sn_icodesli_pwbid.getSelectedItemPosition();
 		switch (idx)
 		{
-		case 0:
-			pwdId = 0x01;
-			break;
-		case 1:
-			pwdId = 0x02;
-			break;
-		case 2:
-			pwdId = 0x04;
-			break;
-		case 3:
-			pwdId = 0x08;
-			break;
-		case 4:
-			pwdId = 0x10;
-			break;
-		default:
-			return;
+			case 0:
+				pwdId = 0x01;
+				break;
+			case 1:
+				pwdId = 0x02;
+				break;
+			case 2:
+				pwdId = 0x04;
+				break;
+			case 3:
+				pwdId = 0x08;
+				break;
+			case 4:
+				pwdId = 0x10;
+				break;
+			default:
+				return;
 		}
 		String strPwb = ed_icodesli_pwb.getText().toString();
 		if (strPwb.length() != 8)
@@ -848,23 +848,23 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		int idx = sn_icodesli_pwbid.getSelectedItemPosition();
 		switch (idx)
 		{
-		case 0:
-			pwdId = 0x01;
-			break;
-		case 1:
-			pwdId = 0x02;
-			break;
-		case 2:
-			pwdId = 0x04;
-			break;
-		case 3:
-			pwdId = 0x08;
-			break;
-		case 4:
-			pwdId = 0x10;
-			break;
-		default:
-			return;
+			case 0:
+				pwdId = 0x01;
+				break;
+			case 1:
+				pwdId = 0x02;
+				break;
+			case 2:
+				pwdId = 0x04;
+				break;
+			case 3:
+				pwdId = 0x08;
+				break;
+			case 4:
+				pwdId = 0x10;
+				break;
+			default:
+				return;
 		}
 
 		String strErrInfo = "Lock password successfully";
@@ -884,14 +884,14 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 		int idx = sn_icodesli_protectEasOrAfi.getSelectedItemPosition();
 		switch (idx)
 		{
-		case 0:
-			bandType = 0;
-			break;
-		case 1:
-			bandType = 1;
-			break;
-		default:
-			return;
+			case 0:
+				bandType = 0;
+				break;
+			case 1:
+				bandType = 1;
+				break;
+			default:
+				return;
 		}
 
 		String strErrInfo = "Protect EAS or AFI successfully";
@@ -943,78 +943,78 @@ public class IcodesliTagActivity extends Activity implements OnClickListener
 	{
 		switch (v.getId())
 		{
-		case R.id.btn_icodesli_setAnt:
-			UiSetAnt();
-			break;
-		case R.id.btn_icodesli_inventory:
-			UiInventory();
-			break;
-		case R.id.btn_icodesli_connect:
-			UiConnect();
-			break;
-		case R.id.btn_icodesli_tagInfo:
-			UiGetTagInfo();
-			break;
-		case R.id.btn_icodesli_disconnect:
-			mTag.ISO15693_Disconnect();
-			UiVisible(false);
-			break;
-		case R.id.btn_icodesli_read:
-			UiReadBlock();
-			break;
-		case R.id.btn_icodesli_write:
-			UiWriteBlock();
-			break;
-		case R.id.btn_icodesli_lockBlk:
-			UiLockBlock();
-			break;
-		case R.id.btn_icodesli_setDsfid:
-			UiWriteDsfid();
-			break;
-		case R.id.btn_icodesli_lockDsfid:
-			UiLockDsfid();
-			break;
-		case R.id.btn_icodesli_setAFI:
-			UiWriteAFI();
-			break;
-		case R.id.btn_icodesli_lockAFI:
-			UiLockAFI();
-			break;
-		case R.id.btn_icodesli_enEAS:
-			UiEnableEAS();
-			break;
-		case R.id.btn_icodesli_disEnEAS:
-			UiDisableEAS();
-			break;
-		case R.id.btn_icodesli_lockEas:
-			UiLockEAS();
-			break;
-		case R.id.btn_icodesli_checkEAS:
-			UiEasCheck();
-			break;
-		case R.id.btn_icodesli_authenticate:
-			UiAuthenticatePassword();
-			break;
-		case R.id.btn_icodesli_updatePwb:
-			UiUpdatePassword();
-			break;
-		case R.id.btn_icodesli_enable64bitPwb:
-			UiEnable64BitPwd();
-			break;
-		case R.id.btn_icodesli_lockPwb:
-			UiLockPassword();
-			break;
-		case R.id.btn_icodesli_protectEasOrAfi:
-			UiProtectEasOrAfi();
-			break;
-		case R.id.btn_icodesli_protectPage:
-			UiProtectPage();
-			break;
-		case R.id.btn_icodesli_lockPageState:
-			UiLockPageState();
-			break;
-		default:
-			break;
+			case R.id.btn_icodesli_setAnt:
+				UiSetAnt();
+				break;
+			case R.id.btn_icodesli_inventory:
+				UiInventory();
+				break;
+			case R.id.btn_icodesli_connect:
+				UiConnect();
+				break;
+			case R.id.btn_icodesli_tagInfo:
+				UiGetTagInfo();
+				break;
+			case R.id.btn_icodesli_disconnect:
+				mTag.ISO15693_Disconnect();
+				UiVisible(false);
+				break;
+			case R.id.btn_icodesli_read:
+				UiReadBlock();
+				break;
+			case R.id.btn_icodesli_write:
+				UiWriteBlock();
+				break;
+			case R.id.btn_icodesli_lockBlk:
+				UiLockBlock();
+				break;
+			case R.id.btn_icodesli_setDsfid:
+				UiWriteDsfid();
+				break;
+			case R.id.btn_icodesli_lockDsfid:
+				UiLockDsfid();
+				break;
+			case R.id.btn_icodesli_setAFI:
+				UiWriteAFI();
+				break;
+			case R.id.btn_icodesli_lockAFI:
+				UiLockAFI();
+				break;
+			case R.id.btn_icodesli_enEAS:
+				UiEnableEAS();
+				break;
+			case R.id.btn_icodesli_disEnEAS:
+				UiDisableEAS();
+				break;
+			case R.id.btn_icodesli_lockEas:
+				UiLockEAS();
+				break;
+			case R.id.btn_icodesli_checkEAS:
+				UiEasCheck();
+				break;
+			case R.id.btn_icodesli_authenticate:
+				UiAuthenticatePassword();
+				break;
+			case R.id.btn_icodesli_updatePwb:
+				UiUpdatePassword();
+				break;
+			case R.id.btn_icodesli_enable64bitPwb:
+				UiEnable64BitPwd();
+				break;
+			case R.id.btn_icodesli_lockPwb:
+				UiLockPassword();
+				break;
+			case R.id.btn_icodesli_protectEasOrAfi:
+				UiProtectEasOrAfi();
+				break;
+			case R.id.btn_icodesli_protectPage:
+				UiProtectPage();
+				break;
+			case R.id.btn_icodesli_lockPageState:
+				UiLockPageState();
+				break;
+			default:
+				break;
 		}
 	}
 }
